@@ -7,7 +7,7 @@
 <Title>Welcome to my WebPage</Title>
 
     <style>
-h1 { font-size: 4rem; } /* Relative to root HTML font size */
+h1 { font-size: 4rem; }
 p { font-size: 30px; }
     </style>
     <style> 
@@ -17,10 +17,10 @@ p { font-size: 30px; }
         transition: background 0.5, color 0.5
     }
 
-    h1 {
+    h1  {
         font-family:"comic-sans MS", sans-serif
         text-align: justify;
-        {
+    }
         .navsec {
             width: 100%;
             height: 250px;
@@ -37,18 +37,6 @@ p { font-size: 30px; }
     </style>
 </head>
     <body id= "page">
-        <section class='navsec'>
-            <div class='navdiv'>
-                <ul>
-                    <li>
-                        
-                    </li>
-                    <li>
-                        
-                    </li>
-                </ul>
-            </div>
-        </section>
         <h2>This is my personal webpage</h2>
 
         <p>I am brand new to this coding thing so i hope to build my portfolio on this webpage</p>
@@ -67,7 +55,6 @@ p { font-size: 30px; }
         <br>
         <br>
 
-<!-- Hidden audio (no original player) -->
 <audio id="bgm" autoplay loop muted style="display:none;">
     <source src="nice.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
@@ -108,12 +95,10 @@ p { font-size: 30px; }
 window.addEventListener("load", () => {
     const audio = document.getElementById("bgm");
 
-    // Try silent autoplay
     audio.play().catch(() => {
         console.log("Autoplay blocked, waiting for click.");
     });
 
-    // Unmute on first click
     document.addEventListener("click", () => {
         audio.muted = false;
         audio.volume = 1;
@@ -121,7 +106,6 @@ window.addEventListener("load", () => {
     }, { once: true });
 });
 
-// Custom button functions
 function playAudio() {
     const audio = document.getElementById("bgm");
     audio.play();
@@ -143,8 +127,8 @@ function toggleMute() {
     padding: 14px 32px;
     margin-right: 12px;
     border-radius: 14px;
-    border: 1px solid #C7C7C7;
-    background-color: #FAFAFA;
+    border: 1px solid #8a3333;
+    background-color: #ad7a7a;
     color: #222222;
     font-size: 16px;
     font-weight: 600;
@@ -153,11 +137,11 @@ function toggleMute() {
 }
 
 .nathan:hover {
-    background-color: #F0F0F0;
+    background-color: #6c1e1e;
 }
 
 .nathan:active {
-    background-color: #E0E0E0;
+    background-color: #4f0b0b;
 }
 </style>
 

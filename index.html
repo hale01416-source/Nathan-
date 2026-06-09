@@ -1,169 +1,132 @@
-<!DOCTYPE>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <title>Nathan Dabira – Personal Webpage</title>
+    <link rel="icon" type="image/png" href="good.png">
 
-<link rel="icon" type="image/png" href="good.png">
-
-<Title>Welcome to my WebPage</Title>
+    <!-- Google Font for a clean professional look -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
     <style>
-h1 { font-size: 4rem; }
-p { font-size: 30px; }
-    </style>
-    <style> 
-    body{
-        font-family: "Times New Roman", sans-serif;
-        text-align: left;
-        transition: background 0.5, color 0.5
-    }
-
-    h1  {
-        font-family:"comic-sans MS", sans-serif
-        text-align: justify;
-    }
-        .navsec {
-            width: 100%;
-            height: 250px;
-            top: 0;
+        body {
+            font-family: "Poppins", sans-serif;
+            margin: 0;
+            padding: 40px;
+            background-color: #ffffff;
+            color: #222;
+            transition: background 0.5s, color 0.5s;
         }
-            div {
-                display: box;
-                width: 100%;
-                height: 250px;
-                background-color: blue;
-            }
 
-        
+        h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        h2 {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-top: 40px;
+        }
+
+        p {
+            font-size: 1.2rem;
+            line-height: 1.7;
+            max-width: 700px;
+        }
+
+        .button-row {
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 12px 28px;
+            margin: 6px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            background-color: #f7f7f7;
+            font-size: 15px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.25s ease;
+        }
+
+        .btn:hover {
+            background-color: #eaeaea;
+        }
+
+        .btn:active {
+            background-color: #dcdcdc;
+        }
     </style>
 </head>
-    <body id= "page">
-        <h2>This is my personal webpage</h2>
 
-        <p>I am brand new to this coding thing so i hope to build my portfolio on this webpage</p>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <br>
-        <p>The creator of this webpage is Nathan Dabira</p>
-        <br>
-        <br>
-        <br>
+<body id="page">
 
-<audio id="bgm" autoplay loop muted style="display:none;">
-    <source src="nice.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
-<div>
-<button class="nathan" onclick="playAudio()">Play</button>
-<button class="nathan" onclick="pauseAudio()">Pause</button>
-<button class="nathan" onclick="toggleMute()">Mute / Unmute</button>
+    <h1>Welcome to My Webpage</h1>
+    <p>Hello! My name is <strong>Nathan Dabira</strong>. I’m new to coding, and this webpage is the start of my personal portfolio. I’ll be adding projects, pages, and more as I learn and grow.</p>
 
-</div>
+    <h2>Background Music</h2>
+    <audio id="bgm" autoplay loop muted style="display:none;">
+        <source src="nice.mp3" type="audio/mpeg">
+    </audio>
 
-<style>
-.nathan {
-    padding: 14px 32px;
-    margin-right: 12px;
-    border-radius: 14px;
-    border: 1px solid #C7C7C7;
-    background-color: #FAFAFA;
-    color: #222222;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
+    <div class="button-row">
+        <button class="btn" onclick="playAudio()">Play</button>
+        <button class="btn" onclick="pauseAudio()">Pause</button>
+        <button class="btn" onclick="toggleMute()">Mute / Unmute</button>
+    </div>
 
-.nathan:hover {
-    background-color: #F0F0F0;
-}
+    <h2>Background Color Options</h2>
+    <div class="button-row">
+        <button class="btn" onclick="setColor('red')">Red</button>
+        <button class="btn" onclick="setColor('blue')">Blue</button>
+        <button class="btn" onclick="setColor('yellow')">Yellow</button>
+        <button class="btn" onclick="setColor('turquoise')">Turquoise</button>
+        <button class="btn" onclick="darkMode()">Dark Mode</button>
+        <button class="btn" onclick="lightMode()">Light Mode</button>
+        <button class="btn" onclick="toggleContrast()">High Contrast</button>
+        <button class="btn" onclick="rainbowMode()">Rainbow Mode</button>
+        <button class="btn" onclick="resetAll()">Reset</button>
+    </div>
 
-.nathan:active {
-    background-color: #E0E0E0;
-}
-</style>
+    <script>
+        // Autoplay handling
+        window.addEventListener("load", () => {
+            const audio = document.getElementById("bgm");
 
+            audio.play().catch(() => {
+                console.log("Autoplay blocked, waiting for click.");
+            });
 
+            document.addEventListener("click", () => {
+                audio.muted = false;
+                audio.volume = 1;
+                audio.play();
+            }, { once: true });
+        });
 
-<script>
-window.addEventListener("load", () => {
-    const audio = document.getElementById("bgm");
+        // Audio controls
+        function playAudio() {
+            document.getElementById("bgm").play();
+        }
 
-    audio.play().catch(() => {
-        console.log("Autoplay blocked, waiting for click.");
-    });
+        function pauseAudio() {
+            document.getElementById("bgm").pause();
+        }
 
-    document.addEventListener("click", () => {
-        audio.muted = false;
-        audio.volume = 1;
-        audio.play();
-    }, { once: true });
-});
+        function toggleMute() {
+            const audio = document.getElementById("bgm");
+            audio.muted = !audio.muted;
+        }
 
-function playAudio() {
-    const audio = document.getElementById("bgm");
-    audio.play();
-}
-
-function pauseAudio() {
-    const audio = document.getElementById("bgm");
-    audio.pause();
-}
-
-function toggleMute() {
-    const audio = document.getElementById("bgm");
-    audio.muted = !audio.muted;
-}
-</script>
-
-<style>
-.nathan {
-    padding: 14px 32px;
-    margin-right: 12px;
-    border-radius: 14px;
-    border: 1px solid #8a3333;
-    background-color: #ad7a7a;
-    color: #222222;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: 0.25s ease;
-}
-
-.nathan:hover {
-    background-color: #6c1e1e;
-}
-
-.nathan:active {
-    background-color: #4f0b0b;
-}
-</style>
-
-    <p> This the background color selector</p>
-<button class="nathan" onclick="setColor('red')">Red</button>
-<button class="nathan" onclick="setColor('blue')">Blue</button>
-<button class="nathan"  onclick="setColor('yellow')">Yellow</button>
-<button class="nathan" onclick="setColor('turquoise')">Turquoise</button>
-<button class="nathan" onclick="darkMode()">Dark Mode</button>
-<button class="nathan" onclick="lightMode()">Light Mode</button>
-<button class="nathan" onclick="toggleContrast()">High Contrast</button>
-<button class="nathan" onclick="RainbowMode()">RainbowMode</button>
-<button class="nathan" onclick="resetAll()">Reset</button>
-
-        <script>
-
+        // Color modes
         let contrastOn = false;
         let rainbowInterval;
 
         function setColor(color) {
             document.body.style.backgroundColor = color;
-    
         }
 
         function darkMode() {
@@ -178,7 +141,6 @@ function toggleMute() {
 
         function toggleContrast() {
             contrastOn = !contrastOn;
-            document.body.style.background = "black"
             document.body.style.filter = contrastOn ? "invert(1) contrast(2)" : "none";
         }
 
@@ -190,7 +152,7 @@ function toggleMute() {
             clearInterval(rainbowInterval);
         }
 
-        function RainbowMode() {
+        function rainbowMode() {
             const colors = ["red", "orange", "yellow", "green", "blue", "purple"];
             let i = 0;
             clearInterval(rainbowInterval);
@@ -199,7 +161,7 @@ function toggleMute() {
                 i = (i + 1) % colors.length;
             }, 500);
         }
-            
-        </script>
-    </body>
+    </script>
+
+</body>
 </html>

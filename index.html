@@ -1,41 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Nathan Dabira – Personal Webpage</title>
-<link rel="icon" type="image/png" href="good.png">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+  <meta charset="UTF-8">
+  <title>Nathan Dabira – Personal Webpage</title>
+  <link rel="icon" type="image/png" href="good.png">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
 </head>
-
 <body id="page">
+  <h1>Welcome to My Webpage</h1>
+  <p>Hello! My name is <strong>Nathan Dabira</strong>. I’m new to coding, and this webpage is the start of my personal portfolio. I’ll be adding projects, pages, and more as I learn and grow.</p>
 
-    <h1>Welcome to My Webpage</h1>
-    <p>Hello! My name is <strong>Nathan Dabira</strong>. I’m new to coding, and this webpage is the start of my personal portfolio. I’ll be adding projects, pages, and more as I learn and grow.</p>
+  <h2>Background Music</h2>
+  <!-- Start muted so autoplay works -->
+  <audio id="bgm" autoplay loop muted style="display:none;">
+    <source src="nice3.mp3" type="audio/mpeg">
+  </audio>
 
-    <h2>Background Music</h2>
-    <audio id="bgm" autoplay loop muted style="display:none;">
-        <source src="nice3.mp3" type="audio/mpeg">
-    </audio>
+  <script>
+    // Handle autoplay + unmute on first click
+    window.addEventListener("load", () => {
+      const audio = document.getElementById("bgm");
+      audio.play().catch(() => {
+        console.log("Autoplay blocked, waiting for click.");
+      });
 
-    <div class="button-row">
-        <button class="btn" onclick="playAudio()">Play</button>
-        <button class="btn" onclick="pauseAudio()">Pause</button>
-        <button class="btn" onclick="toggleMute()">Mute / Unmute</button>
-    </div>
+      // First user click will unmute and play
+      document.addEventListener("click", () => {
+        audio.muted = false;
+        audio.volume = 1;
+        audio.play();
+      }, { once: true });
+    });
 
-    <h2>Background Color Options</h2>
-    <div class="button-row">
-        <button class="btn" onclick="setColor('red')">Red</button>
-        <button class="btn" onclick="setColor('blue')">Blue</button>
-        <button class="btn" onclick="setColor('yellow')">Yellow</button>
-        <button class="btn" onclick="setColor('turquoise')">Turquoise</button>
-        <button class="btn" onclick="darkMode()">Dark Mode</button>
-        <button class="btn" onclick="lightMode()">Light Mode</button>
-        <button class="btn" onclick="toggleContrast()">High Contrast</button>
-        <button class="btn" onclick="rainbowMode()">Rainbow Mode</button>
-        <button class="btn" onclick="resetAll()">Reset</button>
-    </div>
+    // Audio controls
+    function playAudio() {
+      const audio = document.getElementById("bgm");
+      audio.muted = false; // ensure sound
+      audio.play();
+    }
+    function pauseAudio() {
+      document.getElementById("bgm").pause();
+    }
+    function toggleMute() {
+      const audio = document.getElementById("bgm");
+      audio.muted = !audio.muted;
+    }
+  </script>
 
+  <div class="button-row">
+    <button class="btn" onclick="playAudio()">Play</button>
+    <button class="btn" onclick="pauseAudio()">Pause</button>
+    <button class="btn" onclick="toggleMute()">Mute / Unmute</button>
+  </div>
+
+  <h2>Background Color Options</h2>
+  <div class="button-row">
+    <button class="btn" onclick="setColor('red')">Red</button>
+    <button class="btn" onclick="setColor('blue')">Blue</button>
+    <button class="btn" onclick="setColor('yellow')">Yellow</button>
+    <button class="btn" onclick="setColor('turquoise')">Turquoise</button>
+    <button class="btn" onclick="darkMode()">Dark Mode</button>
+    <button class="btn" onclick="lightMode()">Light Mode</button>
+    <button class="btn" onclick="toggleContrast()">High Contrast</button>
+    <button class="btn" onclick="rainbowMode()">Rainbow Mode</button>
+    <button class="btn" onclick="resetAll()">Reset</button>
+  </div>
+
+    <h3>These are the other sites</h3>
+   <a href="google.com"><h3>Click the link below to view pictures from our computer library.</h3></a>
 </body>
 </html>

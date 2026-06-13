@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<section>
+<head> 
   <meta charset="UTF-8">
   <title>Nathan Dabira – Personal Webpage</title>
   <link rel="icon" type="image/png" href="good.png">
   <link rel="stylesheet" href="style.css">
   <script src="script.js"></script>
 </head>
+</section>
+
 <body id="page">
   <h1>Welcome to My Webpage</h1>
   <p>Hello! My name is <strong>Nathan Dabira</strong>. I’m new to coding, and this webpage is the start of my personal portfolio. I’ll be adding projects, pages, and more as I learn and grow.</p>
 
   <h2>Background Music</h2>
+<section>
   <!-- Start muted so autoplay works -->
   <audio id="bgm" autoplay loop muted style="display:none;">
     <source src="nice3.mp3" type="audio/mpeg">
@@ -33,6 +37,8 @@
       }, { once: true });
     });
 
+
+
     // Audio controls
     function playAudio() {
       const audio = document.getElementById("bgm");
@@ -47,7 +53,8 @@
       audio.muted = !audio.muted;
     }
   </script>
-
+</section>
+<section>
   <div class="button-row">
     <button class="btn" onclick="playAudio()">Play</button>
     <button class="btn" onclick="pauseAudio()">Pause</button>
@@ -68,6 +75,13 @@
   </div>
 
     <h3>These are the other sites</h3>
-   <a href="About Me page"><h3>Click this to learn about me</h3></a>
+       <nav class="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About Me page.html">About Me</a></li>
+        <li><a href="projects.html">Projects</a></li>
+    </ul>
+</nav>
+</section>
 </body>
 </html>

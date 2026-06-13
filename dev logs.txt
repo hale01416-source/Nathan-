@@ -1,1 +1,4 @@
-This are the devlogs
+This are the devlogs.
+
+8 june 2026:publish the website on github and vercel
+9 june 2026:seperate the the javascript and css from the html

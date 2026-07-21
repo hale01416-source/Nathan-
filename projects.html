@@ -11,15 +11,88 @@
 <h1>This are my contacts</h1>
     <br>
     <br>
-<button class= "btn" onclick="window.open('https://discord.gg/Kv8XdvUE', '_blank')">
+
+<div class="button-row">
+    <button class= "btn" onclick="window.open('https://www.instagram.com/hale01416/?hl=en', '_blank')">
+        My Instagram
+    </button>
+    <button class= "btn" onclick="window.open('https://x.com/hale1090204', '_blank')">
+        My Twitter
+    </button>
+    <button class= "btn" onclick="window.open('https://discord.gg/mXhJWY2y7j', '_blank')">
   My discord server
-</button>
-<button class= "btn" onclick="window.open('https://www.reddit.com/user/MountainEchidna6069/', "_blank')">
+    </button>
+    <button class= "btn" onclick="window.open('https://www.reddit.com/user/MountainEchidna6069/', '_blank')">
     My Reddit
-</button>
-<button class= "btn" onclick="window.open('https://www.pinterest.com/hale01416/?invite_code=9b0a26e6feb94eea97865ca47aacf796&sender=1104085802306488541', '_blank')">
+    </button>
+    <button class= "btn" onclick="window.open('https://www.pinterest.com/hale01416/?invite_code=9b0a26e6feb94eea97865ca47aacf796&sender=1104085802306488541', '_blank')">
     My Pinterest
-</button>
+    </button>  
+    <button class="btn" onclick="window.open('mailto:hale01416@gmail.com')">My Gmail</button>
+</div> 
+
+<h2>These are the audio controls for the background music</h2>
+<section>
+  <!-- Start muted so autoplay works -->
+  <audio id="bgm" autoplay loop muted style="display:none;">
+    <source src="nice2.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    // Handle autoplay + unmute on first click
+    window.addEventListener("load", () => {
+      const audio = document.getElementById("bgm");
+      audio.play().catch(() => {
+        console.log("Autoplay blocked, waiting for click.");
+      });
+
+      // First user click will unmute and play
+      document.addEventListener("click", () => {
+        audio.muted = false;
+        audio.volume = 1;
+        audio.play();
+      }, { once: true });
+    });
+
+
+
+    // Audio controls
+    function playAudio() {
+      const audio = document.getElementById("bgm");
+      audio.muted = false; // ensure sound
+      audio.play();
+    }
+    function pauseAudio() {
+      document.getElementById("bgm").pause();
+    }
+    function toggleMute() {
+      const audio = document.getElementById("bgm");
+      audio.muted = !audio.muted;
+    }
+  </script>
+</section>
+<section>
+  <div class="button-row">
+    <button class="btn" onclick="playAudio()">Play</button>
+    <button class="btn" onclick="pauseAudio()">Pause</button>
+    <button class="btn" onclick="toggleMute()">Mute / Unmute</button>
+  </div>
+
+
+     <h3>These are the other sites</h3>
+       <nav class="navbar">
+    <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="About Me page.html">About Me</a></li>
+        <li><a href="projects.html">Contacts</a></li>
+        <li><a href="bro.html">Projects</a></li>
+    </ul>
+</nav>
+
+    <footer>
+        <p>© 2026 Nathan Dabira</p>
+    </footer>
+
 
 </body>
 </html>
